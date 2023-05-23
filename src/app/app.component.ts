@@ -19,4 +19,13 @@ export class AppComponent {
     age: 18,
     avatar: "https://cataas.com/cat"
   }
+
+  // Can also have private , but won t be usable on html render
+  toggleButton () {
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  increaseAge() {
+    this.person.age += 1;
+  }
 }
