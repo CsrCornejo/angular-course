@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-store';
+  // Can use private on variables here
+  // private name = 'Cesar';
+  name = 'Cesar';
+  age = 18;
+  img = 'https://cataas.com/cat';
 }
