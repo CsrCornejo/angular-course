@@ -11,4 +11,12 @@ export class AppComponent {
   name = 'Cesar';
   age = 18;
   img = 'https://cataas.com/cat';
+
+  btnDisabled = true;
+
+  person = {
+    name: "Cesar",
+    age: 18,
+    avatar: "https://cataas.com/cat"
+  }
 }
