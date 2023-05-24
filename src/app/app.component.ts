@@ -14,6 +14,10 @@ export class AppComponent {
 
   btnDisabled = true;
 
+  // name: (string |number) [] = [];
+  names: string[] = ['Cesar', 'Juli', 'Mario'];
+  newName: string = "";
+
   person = {
     name: "Cesar",
     age: 18,
@@ -37,5 +41,14 @@ export class AppComponent {
   onChangeName(event: Event) {
     const element = event.target as HTMLInputElement;
     this.person.name = element.value;
+  }
+
+  onAddName() {
+    this.names.push(this.newName);
+    this.newName = "";
+  }
+
+  onDeleteName(index: number) {
+    this.names.splice(index, 1);
   }
 }
