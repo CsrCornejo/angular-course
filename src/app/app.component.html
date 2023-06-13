@@ -1,7 +1,33 @@
+<h1>NgClass and NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr class="line-error"
+  [ngClass]="{
+    'valid': nameInput4.valid,
+    'invalid': nameInput4.invalid,
+  }"
+/>
+<p class="message-error" [class.invalid]="nameInput4.invalid">El campo es requerido</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      'display': 'block'
+    }"></div>
+  </div>
+</div>
+
+<hr>
 <h1>Class & Style</h1>
 <input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
 <p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
-<!-- Da error porque el nameInput3 aun no ha sido declarado y ya se usa para una condicion -->
+<!-- Error due to nameInput3being declared post use in the conditional -->
 <!-- <label [style.font-style]="nameInput3.invalid ? 'italic' : 'normal' ">Nombre</label> -->
 <input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
 <p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal' ">Texto texto texto</p>

@@ -21,6 +21,12 @@ export class AppComponent {
   names: string[] = ['Cesar', 'Juli', 'Mario'];
   newName: string = "";
 
+  box = {
+    width: 100,
+    height: 100,
+    background: "red"
+  };
+
   person = {
     name: "Cesar",
     age: 18,
