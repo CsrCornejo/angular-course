@@ -1,3 +1,8 @@
+<h1>Components</h1>
+<p><input type="text" [(ngModel)]="imgParent" /></p>
+<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+
+<hr>
 <h1>Formulario</h1>
 <form (ngSubmit)="onRegister()" #myForm="ngForm">
   <div class="input-group">

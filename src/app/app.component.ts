@@ -7,6 +7,9 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  // imgParent = "https://www.w3schools.com/howto/img_avatar.png";
+  imgParent = "";
+
   widthImg = 10;
 
   // Can use private on variables here
@@ -103,5 +106,9 @@ export class AppComponent {
 
   onRegister() {
     console.log(this.register);
+  }
+
+  onLoaded(img: string) {
+    console.log("log padre ", img);
   }
 }
