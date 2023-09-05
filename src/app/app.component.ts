@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './product.model';
-
+import { Product } from './models/product.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +8,46 @@ import { Product } from './product.model';
 export class AppComponent {
   // imgParent = "https://www.w3schools.com/howto/img_avatar.png";
   imgParent = "";
+
+  products: Product[] = [
+    {
+      id: '1',
+      name: 'El mejor juguete',
+      price: 565,
+      image: './assets/images/toy.jpg',
+      category: 'all',
+    },
+    {
+      id: '1',
+      name: 'Bicicleta casi nueva',
+      price: 356,
+      image: './assets/images/bike.jpg'
+    },
+    {
+      id: '1',
+      name: 'Colleción de albumnes',
+      price: 34,
+      image: './assets/images/album.jpg'
+    },
+    {
+      id: '1',
+      name: 'Mis libros',
+      price: 23,
+      image: './assets/images/books.jpg'
+    },
+    {
+      id: '1',
+      name: 'Casa para perro',
+      price: 34,
+      image: './assets/images/house.jpg'
+    },
+    {
+      id: '1',
+      name: 'Gafas',
+      price: 3434,
+      image: './assets/images/glasses.jpg'
+    }
+  ];
 
   widthImg = 10;
 
@@ -42,42 +81,8 @@ export class AppComponent {
     avatar: "https://cataas.com/cat"
   }
 
-  products: Product[] = [
-    {
-      name: 'El mejor juguete',
-      price: 565,
-      image: './assets/images/toy.jpg',
-      category: 'all',
-    },
-    {
-      name: 'Bicicleta casi nueva',
-      price: 356,
-      image: './assets/images/bike.jpg'
-    },
-    {
-      name: 'Colleción de albumnes',
-      price: 34,
-      image: './assets/images/album.jpg'
-    },
-    {
-      name: 'Mis libros',
-      price: 23,
-      image: './assets/images/books.jpg'
-    },
-    {
-      name: 'Casa para perro',
-      price: 34,
-      image: './assets/images/house.jpg'
-    },
-    {
-      name: 'Gafas',
-      price: 3434,
-      image: './assets/images/glasses.jpg'
-    }
-  ]
-
   // Can also have private , but won t be usable on html render
-  toggleButton () {
+  toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
 
