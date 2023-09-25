@@ -1,7 +1,5 @@
-<p>img works!</p>
-<h3>Counter {{counter}}</h3>
-<h3>{{img}}</h3>
-<img (load)="imgLoaded()" (error)="imgError()" width="100" [src]="img" alt="" *ngIf="img; else elseImg">
+<img (load)="imgLoaded()" (error)="imgError()" [src]="img" alt="" *ngIf="img; else elseImg">
+<!-- <h3>Counter {{counter}}</h3> -->
 <ng-template #elseImg>
-  <img width="100" [src]="imageDefault" alt="">
+  <img [src]="imageDefault" alt="">
 </ng-template>
