@@ -3,8 +3,9 @@
 
 <hr>
 <h1>Components</h1>
+<button (click)="toggleImg()">Toggle Img</button>
 <p><input type="text" [(ngModel)]="imgParent" /></p>
-<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+<app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
 
 <hr>
 <h1>Formulario</h1>
