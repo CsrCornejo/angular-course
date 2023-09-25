@@ -7,6 +7,9 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
+  myShoppingCart: Product[] = [];
+  total = 0;
+
   products: Product[] = [
     {
       id: '1',
@@ -16,34 +19,40 @@ export class ProductsComponent {
       category: 'all',
     },
     {
-      id: '1',
+      id: '2',
       name: 'Bicicleta casi nueva',
       price: 356,
       image: './assets/images/bike.jpg'
     },
     {
-      id: '1',
+      id: '3',
       name: 'Colleción de albumnes',
       price: 34,
       image: './assets/images/album.jpg'
     },
     {
-      id: '1',
+      id: '4',
       name: 'Mis libros',
       price: 23,
       image: './assets/images/books.jpg'
     },
     {
-      id: '1',
+      id: '5',
       name: 'Casa para perro',
       price: 34,
       image: './assets/images/house.jpg'
     },
     {
-      id: '1',
+      id: '6',
       name: 'Gafas',
       price: 3434,
       image: './assets/images/glasses.jpg'
     }
   ];
+
+  onAddToShoppingCart(product: Product) {
+    console.log(product);
+    this.myShoppingCart.push(product);
+    this.total = this.myShoppingCart.reduce((sum, item) => sum + item.price, 0);
+  }
 }
