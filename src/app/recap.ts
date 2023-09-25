@@ -1,5 +1,5 @@
-const username: string = 'Nicolas';
-const usernameExtra: string | number | boolean = false;
+// const username = 'Nicolas';
+// const usernameExtra: string | number | boolean = false;
 const sum = (a: number, b: number):number => {
   return a + b;
 }

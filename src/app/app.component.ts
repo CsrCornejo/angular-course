@@ -22,7 +22,7 @@ export class AppComponent {
 
   // name: (string |number) [] = [];
   names: string[] = ['Cesar', 'Juli', 'Mario'];
-  newName: string = "";
+  newName = "";
 
   register = {
     name: '',

@@ -7,15 +7,16 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, On
 })
 export class ImgComponent implements OnChanges, OnInit, AfterViewInit, OnDestroy {
 
-  img: string = '';
+  img = '';
 
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
     console.log("change just image ", this.img);
   }
 
-  @Input() alt: string = '';
+  @Input() alt = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = './assets/images/house.jpg';
   // counter = 0;

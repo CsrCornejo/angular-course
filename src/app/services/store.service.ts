@@ -13,8 +13,6 @@ export class StoreService {
   // Usualmente el formato de observable lleva $ al final
   myCart$ = this.myCart.asObservable();
 
-  constructor() { }
-
   addProduct(product: Product) {
     this.myShoppingCart.push(product);
     this.myCart.next(this.myShoppingCart);
