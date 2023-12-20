@@ -77,7 +77,7 @@ export class ProductsComponent implements OnInit {
 
   updateProduct() {
     const changes: UpdateProductDTO = {
-      title: "chanege title"
+      title: "change title"
     }
     const id = this.productChosen.id;
     this.productsService.update(id, changes)
@@ -86,6 +86,16 @@ export class ProductsComponent implements OnInit {
       const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
       this.products[productIndex] = data;
       this.productChosen = data;
+    })
+  }
+
+  deleteProduct() {
+    const id = this.productChosen.id;
+    this.productsService.delete(id)
+    .subscribe(() => {
+      const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
+      this.products.splice(productIndex, 1);
+      this.showProductDetail = false;
     })
   }
 }
