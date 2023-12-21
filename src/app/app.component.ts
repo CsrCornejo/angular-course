@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { AuthService } from './services/auth.service';
+import { UsersService } from './services/users.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,6 +43,31 @@ export class AppComponent {
     name: "Cesar",
     age: 18,
     avatar: "https://cataas.com/cat"
+  }
+
+  constructor(
+    private authService: AuthService,
+    private usersService: UsersService,
+  ) {
+
+  }
+
+  createUser() {
+    this.usersService.create({
+      name: "Sebar",
+      email: "sebas@hotmail.com",
+      password: "1234543"
+    })
+    .subscribe(rta => {
+      console.log(rta);
+    })
+  }
+
+  login() {
+    this.authService.login("sebas@hotmail.com", "1234543")
+    .subscribe(rta => {
+      console.log(rta.access_token);
+    })
   }
 
   // Can also have private , but won t be usable on html render
