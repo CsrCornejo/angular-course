@@ -13,6 +13,8 @@ export class AppComponent {
   imgParent = "";
   showImg = true;
 
+  token = "";
+
   widthImg = 10;
 
   // Can use private on variables here
@@ -67,7 +69,15 @@ export class AppComponent {
     this.authService.login("sebas@hotmail.com", "1234543")
     .subscribe(rta => {
       console.log(rta.access_token);
+      this.token = rta.access_token;
     })
+  }
+
+  getProfile() {
+    this.authService.profile(this.token)
+    .subscribe(profile => {
+      console.log(profile);
+    });
   }
 
   // Can also have private , but won t be usable on html render
