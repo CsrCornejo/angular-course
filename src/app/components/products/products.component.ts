@@ -39,10 +39,6 @@ export class ProductsComponent implements OnInit {
   ) { this.myShoppingCart = this.storeService.getShoppingCart(); }
 
   ngOnInit(): void {
-    // this.productsService.getAllProducts2()
-    // .subscribe(data => {
-    //   this.products = data;
-    // });
     this.productsService.getProductsByPage(10, 0)
     .subscribe(data => {
       this.products = data;

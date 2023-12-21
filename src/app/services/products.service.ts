@@ -9,6 +9,7 @@ import { retry } from 'rxjs';
 export class ProductsService {
   private apiUrl = 'https://young-sands-07814.herokuapp.com/api/products';
   private apiUrl2 = 'https://young-sands-07814.herokuppapp.com/api/products';
+  private apiUrlProxy = '/api/products';
 
   constructor(
     private http: HttpClient
