@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
   ) { this.myShoppingCart = this.storeService.getShoppingCart(); }
 
   ngOnInit(): void {
-    this.productsService.getProductsByPage(10, 0)
+    this.productsService.getAllProducts(this.limit, this.offset)
     .subscribe(data => {
       this.products = data;
       this.offset += this.limit;

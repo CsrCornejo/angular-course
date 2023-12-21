@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { CreateProductDTO, Product, UpdateProductDTO } from '../models/product.model';
-import { retry, catchError, throwError } from 'rxjs';
+import { retry, catchError, throwError, map } from 'rxjs';
 
 import { environment } from "./../../environments/environment";
 
@@ -16,23 +16,20 @@ export class ProductsService {
     private http: HttpClient
   ) { }
 
-  getAllProducts(limit?: number, offset?: number ) {
+  getAllProducts(limit?: any, offset?: any ) {
     let params = new HttpParams();
-    if (limit && offset) {
-      params = params.set('limit', limit);
-      params = params.set('offset', offset);
-    }
-    return this.http.get<Product[]>(this.apiUrl, { params });
-  }
-
-  getAllProducts2(limit?: number, offset?: number ) {
-    let params = new HttpParams();
-    if (limit && offset) {
-      params = params.set('limit', limit);
-      params = params.set('offset', offset);
-    }
-    return this.http.get<Product[]>(this.apiUrl2, { params })
-    .pipe( retry(10) );
+    params = params.set('limit', limit);
+    params = params.set('offset', offset);
+    return this.http.get<Product[]>(this.apiUrl, { params })
+    .pipe(
+      retry(3),
+      map(products => products.map(item => {
+        return {
+          ...item,
+          taxes: .19 * item.price
+        }
+      }) )
+     );
   }
 
   getProduct(id: string) {
